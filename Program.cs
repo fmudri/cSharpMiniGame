@@ -39,8 +39,10 @@ while (!shouldExit)
         Console.Clear();
         Environment.Exit(0);
     }
-    // METHOD CALL ADDED BY ME
+    // METHOD CALLS ADDED BY ME
     FoodEaten();
+    ChangePlayer();
+    FoodEffect();
 }
 
 // Returns true if the Terminal was resized 
@@ -73,6 +75,16 @@ void ShowFood()
     // Display the food at the location
     Console.SetCursorPosition(foodX, foodY);
     Console.Write(foods[food]);
+}
+
+bool FoodEffect()
+{   
+    if (player == states[2])
+    {
+        FreezePlayer();
+        Move();
+    }
+    return true;
 }
 
 // Changes the player to match the food consumed
